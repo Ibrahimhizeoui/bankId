@@ -8,7 +8,7 @@ const ApiKey = "73f9b0dac47004556036f77d1b2c743e";
 const authenticateServiceKey = "e697c1f7255fa71bbebd28aaa61c7b94";
 const callbackUrl = "http://127.0.0.1:3000/";
 //put  here your personnummer
-const pnr = "";
+const pnr = "199205230031";
 
 
 const server = http.createServer((req, res) => {
@@ -21,7 +21,7 @@ const server = http.createServer((req, res) => {
                 if (!error && response.statusCode == 200) {
                 var obj = JSON.parse(body);
                 console.log(obj);
-                res.end();   
+                res.end("<script>window.close()</script>");   
             }});
     }
     else{
@@ -31,10 +31,10 @@ const server = http.createServer((req, res) => {
          if (!error && response.statusCode == 200) {
             var obj = JSON.parse(body);
                // if you want to try the redirect comment this 4 lines and uncomment the redirectRequest function
-               res.statusCode = 301;
-               res.setHeader('Content-Type', 'text/plain');
-               res.setHeader('Location', obj.redirectUrl);
-               res.end(); 
+               // res.statusCode = 301;
+               //res.setHeader('Content-Type', 'text/plain');
+               //bres.setHeader('Location', obj.redirectUrl);
+               res.end("<script>window.open(\""+obj.redirectUrl+"\",\"DescriptiveWindowName\",\"resizable,scrollbars,status\")</script>"); 
             /*var  redirectRequest = require('request');
                 redirectRequest(obj.redirectUrl,function (error, response, body) {
                     console.log('ok')
