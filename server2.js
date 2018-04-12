@@ -50,27 +50,3 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
-
-/*FederatedLoginRequest.post(FederatedLoginUrl,{form:{pnr:'199205230031'}},function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var obj = JSON.parse(body);
-            console.log(obj);
-            ;
-        }
-        //response.end();
-    });*/
-
-   /* function doGetSessionRequest(x){
-                console.log('time out')
-                const GetSessionUrl = "https://client-test.grandid.com/json1.1//GetSession?sessionid="+x+"&apiKey="+ApiKey+"&authenticateServiceKey="+authenticateServiceKey;
-                var GetSessionRequest = require('request');
-                GetSessionRequest(GetSessionUrl,function (error, response, body) {
-                console.log(error)
-                if (!error && response.statusCode == 200) {
-            var obj = JSON.parse(body);
-            console.log(obj);
-           // res.end();
-          }});
-    
-            };
-*/
